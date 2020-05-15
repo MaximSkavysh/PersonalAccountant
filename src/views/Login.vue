@@ -3,22 +3,35 @@
     <div class="card-content">
       <span class="card-title">Домашняя бухгалтерия</span>
       <div class="input-field">
-        <input id="email" type="text" 
-        v-model.trim="$v.user.email.$model" 
-        :class="{ 'is-invalid': submitted && $v.user.email.$error }"
+        <input
+          id="email"
+          type="text"
+          v-model.trim="$v.user.email.$model"
+          :class="{ 'is-invalid': submitted && $v.user.email.$error }"
         />
         <label for="email">Email</label>
-        <small class="helper-text invalid" v-if="!$v.user.email.required">Email is required</small>
-        <small class="helper-text invalid" v-if="!$v.user.email.email">Email is invalid</small>
+        <small class="helper-text invalid" v-if="!$v.user.email.required"
+          >Email is required</small
+        >
+        <small class="helper-text invalid" v-if="!$v.user.email.email"
+          >Email is invalid</small
+        >
       </div>
       <div class="input-field">
-        <input id="password" type="password" 
-        v-model="$v.user.password.$model" 
-        :class="{ 'is-invalid': submitted && $v.user.password.$error }"
+        <input
+          id="password"
+          type="password"
+          v-model="$v.user.password.$model"
+          :class="{ 'is-invalid': submitted && $v.user.password.$error }"
         />
         <label for="password">Пароль</label>
-        <small class="helper-text invalid" v-if="!$v.user.password.required">Password is required</small>
-        <small class="helper-text invalid" v-if="!$v.user.password.minLength">Password must have at least {{$v.user.password.$params.minLength.min}}  letters.</small>
+        <small class="helper-text invalid" v-if="!$v.user.password.required"
+          >Password is required</small
+        >
+        <small class="helper-text invalid" v-if="!$v.user.password.minLength"
+          >Password must have at least
+          {{ $v.user.password.$params.minLength.min }} letters.</small
+        >
       </div>
     </div>
     <div class="card-action">
@@ -58,12 +71,12 @@ export default {
   },
   methods: {
     submitHandler() {
-      this.submitted = true
-      if(this.$v.$invalid){
-        this.$v.$touch()
-        return
+      this.submitted = true;
+      if (this.$v.$invalid) {
+        this.$v.$touch();
+        return;
       }
-      alert("SUCCESS!! :-)\n\n" + JSON.stringify(this.user));
+      alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.user));
       this.$router.push('/');
     }
   }
