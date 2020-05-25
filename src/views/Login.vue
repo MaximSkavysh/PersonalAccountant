@@ -51,7 +51,7 @@
 </template>
 <script>
 import { required, minLength, email } from 'vuelidate/lib/validators';
-
+import messsages from '@/utils/messages'
 export default {
   name: 'login',
   data() {
@@ -78,6 +78,11 @@ export default {
       }
       alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.user));
       this.$router.push('/');
+    }
+  },
+  mounted(){
+    if(messsages[this.$route.query.message]){
+      this.$toaster.info(messsages[this.$route.query.message])
     }
   }
 };
