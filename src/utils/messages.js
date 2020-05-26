@@ -1,3 +1,3 @@
 export default {
-    'logout' : 'Goodbye, you leave the sistem'
+    'logout' : 'Goodbye, my friend'
 }
