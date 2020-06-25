@@ -92,14 +92,18 @@ export default {
     }
   },
   methods: {
-    submitHandler() {
+    async submitHandler() {
       this.submitted = true;
       if (this.$v.$invalid) {
-        this.$v.$touch();
-        return;
+        this.$v.$touch()
+        return
       }
-      alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.user));
-      this.$router.push('/');
+      try {
+        await this.$store.dispatch('register', this.user)
+        this.$router.push('/')
+      } catch (error) {
+        console.error(error)
+      }      
     }
   }
 };

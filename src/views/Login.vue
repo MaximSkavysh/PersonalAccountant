@@ -81,7 +81,7 @@ export default {
         alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.user));
         this.$router.push('/');
       } catch (e) {
-        console.error(e);
+        console.error(e)
       }
     }
   },
