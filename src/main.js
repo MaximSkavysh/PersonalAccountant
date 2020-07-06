@@ -8,6 +8,7 @@ import firebase from 'firebase';
 import 'firebase/auth'
 import 'firebase/database'
 import dateFilter from './filters/date.filter'
+import Loader from './components/Loader'
 import Toaster from 'v-toaster'
 import 'materialize-css/dist/js/materialize'
 import 'v-toaster/dist/v-toaster.css'
@@ -16,6 +17,7 @@ Vue.use(Vuelidate)
 Vue.use(Toaster, { timeout: 5000 })
 Vue.config.productionTip = false
 Vue.filter('date', dateFilter)
+Vue.component('Loader', Loader)
 
 const firebaseConfig = {
     apiKey: "AIzaSyCXEit2PYr06DprRm9Kp7Kr85Uche-EPGI",
