@@ -32,7 +32,7 @@ export default new Vuex.Store({
     async fetchCurrency({ commit }) {
 
       const res = await fetch(
-        `https://api.exchangeratesapi.io/latest?symbols=USD,BRL,GBP`
+        `https://api.exchangeratesapi.io/latest?symbols=USD,GBP`
       );
       commit('setCurrData', await res.json());
     }

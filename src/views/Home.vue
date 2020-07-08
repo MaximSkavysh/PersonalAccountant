@@ -29,7 +29,8 @@ export default {
     if (!Object.keys(this.$store.state.currncyData).length) {
       await this.$store.dispatch('fetchCurrency');
     }
-    this.currency = this.$store.getters.currncyData;
+    this.currency = this.$store.getters.currncyData
+    console.log(this.currency)
     this.loading = false;
   },
   components: {
