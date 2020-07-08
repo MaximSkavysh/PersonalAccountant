@@ -11,8 +11,7 @@
     <Loader v-if="loading" />
 
     <div v-else class="row">
-      <Bill
-      :rates="currency.rates" />
+      <Bill :rates="currency.rates" />
       <Currency />
     </div>
   </div>
@@ -29,9 +28,9 @@ export default {
   async mounted() {
     if (!Object.keys(this.$store.state.currncyData).length) {
       await this.$store.dispatch('fetchCurrency');
-      this.currency = this.$store.getters.currncyData;
-      this.loading = false;
     }
+    this.currency = this.$store.getters.currncyData;
+    this.loading = false;
   },
   components: {
     Bill,

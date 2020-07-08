@@ -32,6 +32,7 @@ export default {
     async logout({ commit }) {
       await firebase.auth().signOut();
       commit('clearInfo');
+      commit('clearCurrData')
     }
   }
 };

@@ -19,6 +19,9 @@ export default new Vuex.Store({
     },
     setCurrData(state, currncyData) {
       state.currncyData = currncyData;
+    },
+    clearCurrData(state) {
+      state.currncyData = {}
     }
   },
   getters: {
@@ -27,6 +30,7 @@ export default new Vuex.Store({
   },
   actions: {
     async fetchCurrency({ commit }) {
+
       const res = await fetch(
         `https://api.exchangeratesapi.io/latest?symbols=USD,BRL,GBP`
       );
