@@ -3,7 +3,7 @@
     <div class="page-title">
       <h3>Счет</h3>
 
-      <button class="btn waves-effect waves-light btn-small">
+      <button class="btn waves-effect waves-light btn-small" @click="refresh">
         <i class="material-icons">refresh</i>
       </button>
     </div>
@@ -12,7 +12,7 @@
 
     <div v-else class="row">
       <Bill :rates="currency.rates" />
-      <Currency />
+      <Currency :rates="currency.rates" :date="currency.date" />
     </div>
   </div>
 </template>
@@ -29,9 +29,17 @@ export default {
     if (!Object.keys(this.$store.state.currncyData).length) {
       await this.$store.dispatch('fetchCurrency');
     }
-    this.currency = this.$store.getters.currncyData
-    console.log(this.currency)
+    this.currency = this.$store.getters.currncyData;
+
     this.loading = false;
+  },
+  methods: {
+    async refresh() {
+      this.loading = true;
+      await this.$store.dispatch('fetchCurrency');
+      this.currency = this.$store.getters.currncyData;
+      this.loading = false;
+    }
   },
   components: {
     Bill,
